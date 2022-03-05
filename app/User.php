@@ -37,12 +37,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function management(){
+    public function management_bean(){
         return $this->hasOne('App\ManagementBean');
+    }
+    public function management_carbohydrates_cereals(){
+        return $this->hasOne('App\ManagementCarbohydratesCereals');
+    }
+    public function management(){
         return $this->hasOne('App\ManagementBeef');
         return $this->hasOne('App\ManagementCannedBottled');
         return $this->hasOne('App\ManagementCarbohydratesBread');
-        return $this->hasOne('App\ManagementCarbohydratesCereals');
+        
         return $this->hasOne('App\ManagementCarbohydratesNoodles');
         return $this->hasOne('App\ManagementCheese');
         return $this->hasOne('App\ManagementChicken');

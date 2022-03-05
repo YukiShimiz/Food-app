@@ -11,4 +11,13 @@
 |
 */
 
-Route::get('/post','ManagementController@index');
+Route::get('/food/top','TopController@top');
+
+Route::get('/food/first','ManagementController@first');
+
+Route::get('/food/management/create','ManagementController@create');
+
+Route::get('/food/management','ManagementController@top');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -19,6 +19,12 @@ Route::get('/food/management/create/{id}','ManagementController@create');
 
 Route::post('/food/management/create/{id}','ManagementController@update');
 
+Route::get('/food/management/template/create/{id}','TemplateController@create');
+
+Route::post('/food/management/template/create/{id}','TemplateController@store');
+
+Route::get('/food/management/template','TemplateController@top');
+
 Route::get('/food/management/updated','ManagementController@updated');
 
 Route::get('/food/management','ManagementController@top');

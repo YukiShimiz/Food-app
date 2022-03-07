@@ -15,9 +15,14 @@ Route::get('/food/top','TopController@top');
 
 Route::get('/food/first','ManagementController@first');
 
-Route::get('/food/management/create','ManagementController@create');
+Route::get('/food/management/create/{id}','ManagementController@create');
+
+Route::post('/food/management/create/{id}','ManagementController@update');
+
+Route::get('/food/management/updated','ManagementController@updated');
 
 Route::get('/food/management','ManagementController@top');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

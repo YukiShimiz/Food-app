@@ -4,11 +4,11 @@
 <head>
     <meta chrset="UTF-8">
     <html lang="ja"/>
-    <title>Management Top Page</title>
+    <title>Management Updated</title>
 </head>
 <body>
-    <a href="/food/management/create/{{Auth::user()->id}}">食材の更新</a><br>
-    <a href="/food/management/template">テンプレート</a><br>
+    <a>{{Auth::User()->name}}様</a><br>
+    <a>正常に更新されました</a><br>
     <a href="/food/top">トップ画面に戻る</a>
 </body>
 @endsection

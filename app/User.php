@@ -43,10 +43,15 @@ class User extends Authenticatable
     public function management_carbohydrates_cereals(){
         return $this->hasOne('App\ManagementCarbohydratesCereals');
     }
+    
+    public function management_carbohydrates_bread(){
+        return $this->hasOne('App\ManagementCarbohydratesBread');
+    }
+    
     public function management(){
         return $this->hasOne('App\ManagementBeef');
         return $this->hasOne('App\ManagementCannedBottled');
-        return $this->hasOne('App\ManagementCarbohydratesBread');
+    
         
         return $this->hasOne('App\ManagementCarbohydratesNoodles');
         return $this->hasOne('App\ManagementCheese');

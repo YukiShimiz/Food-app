@@ -8,6 +8,7 @@
 </head>
 <body>
     <a href="/food/management/template/create/{{Auth::User()->id}}">テンプレートを追加する</a><br>
+    <a href="/food/management/template/index/{{Auth::User()->id}}">テンプレート一覧</a><br>
     <a href="/food/management">戻る</a>
 </body>
 @endsection

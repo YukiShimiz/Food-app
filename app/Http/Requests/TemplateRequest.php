@@ -345,6 +345,9 @@ class TemplateRequest extends FormRequest
             'template_spices.cinnamon' => 'required|numeric|min:0|max:2000000000',
             'template_spices.turmeric' => 'required|numeric|min:0|max:2000000000',
             'template_spices.chili' => 'required|numeric|min:0|max:2000000000',
+            
+            'template_title_body.title' => 'required|string|max:100',
+            'template_title_body.body' => 'max:2000'
         ];
     }
 }

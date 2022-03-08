@@ -19,6 +19,14 @@ Route::get('/food/management/create/{id}','ManagementController@create');
 
 Route::post('/food/management/create/{id}','ManagementController@update');
 
+Route::get('/food/management/template/{id}','TemplateController@show');
+
+Route::post('/food/management/template/edit/{id}','TemplateController@edit');
+
+Route::delete('/food/management/template/edit/{id}','TemplateController@delete');
+
+Route::get('/food/management/template/index/{id}','TemplateController@index');
+
 Route::get('/food/management/template/create/{id}','TemplateController@create');
 
 Route::post('/food/management/template/create/{id}','TemplateController@store');
@@ -31,4 +39,4 @@ Route::get('/food/management','ManagementController@top');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

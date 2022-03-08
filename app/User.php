@@ -79,34 +79,100 @@ class User extends Authenticatable
         return $this->hasOne('App\ManagementYakumi');
     }
     
-    public function template(){
+    public function template_bean(){
         return $this->hasMany('App\TemplateBean');
+    }
+    public function template_beef(){
         return $this->hasMany('App\TemplateBeef');
+    }
+    public function template_canned_bottled(){
         return $this->hasMany('App\TemplateCannedBottled');
+    }
+    public function template_carbohydrates_bread(){
         return $this->hasMany('App\TemplateCarbohydratesBread');
+    }
+    public function template_carbohydrates_cereals(){
         return $this->hasMany('App\TemplateCarbohydratesCereals');
+    }
+    public function template_carbohydrates_noodles(){
         return $this->hasMany('App\TemplateCarbohydratesNoodles');
+    }
+    public function template_cheese(){
         return $this->hasMany('App\TemplateCheese');
+    }
+    public function template_chicken(){
         return $this->hasMany('App\TemplateChicken');
+    }
+    public function template_dressing(){
         return $this->hasMany('App\TemplateDressing');
+    }
+    public function template(){
+        return $this->hasMany('App\TemplateDriedMaterial');
+    }
+    public function template_eggmilk(){
         return $this->hasMany('App\TemplateEggmilk');
+    }
+    public function template_fruits(){
         return $this->hasMany('App\TemplateFruits');
+    }
+    public function template_herbs(){
         return $this->hasMany('App\TemplateHerbs');
+    }
+    public function template_kneaded_material(){
         return $this->hasMany('App\TemplateKneadedMaterial');
+    }
+    public function template_marine_products(){
         return $this->hasMany('App\TemplateMarineProducts');
+    }
+    public function template_mushroom(){
         return $this->hasMany('App\TemplateMushroom');
+    }
+    public function template_mutton(){
         return $this->hasMany('App\TemplateMutton');
+    }
+    public function template_oil(){
         return $this->hasMany('App\TemplateOil');
+    }
+    public function template_other_meat(){
         return $this->hasMany('App\TemplateOtherMeat');
+    }
+    public function template_pork(){
         return $this->hasMany('App\TemplatePork');
+    }
+    public function template_powders(){
+        return $this->hasMany('App\TemplatePowders');
+    }
+    public function template_seasoning(){
         return $this->hasMany('App\TemplateSeasoning');
+    }
+    public function template_seaweed(){
         return $this->hasMany('App\TemplateSeaweed');
+    }
+    public function template_shellfish(){
         return $this->hasMany('App\TemplateShellfish');
+    }
+    public function template_shrimp(){
         return $this->hasMany('App\TemplateShrimp');
+    }
+    public function template_spices(){
         return $this->hasMany('App\TemplateSpices');
+    }
+    public function template_tohunattopickles(){
         return $this->hasMany('App\TemplateTohunattopickles');
+    }
+    public function template_vegetable(){
         return $this->hasMany('App\TemplateVegetable');
+    }
+    public function template_yakumi(){
         return $this->hasMany('App\TemplateYakumi');
+    }
+    
+    public function template_title_body(){
+        return $this->hasMany('App\TemplateTitleBody');   
+    }
+    
+    public function getByTemplate(int $limit_count=10){
+        return $this->template_title_body()->paginate($limit_count);
     }
     
     public function blog(){

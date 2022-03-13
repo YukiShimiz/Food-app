@@ -11,6 +11,8 @@
 |
 */
 
+Route::group(['middleware' => ['auth']], function(){
+
 Route::get('/food/top','TopController@top');
 
 Route::get('/food/first','ManagementController@first');
@@ -37,6 +39,14 @@ Route::get('/food/management/updated','ManagementController@updated');
 
 Route::get('/food/management','ManagementController@top');
 
-Auth::routes();
+Route::get('/food/menu/top','MenuController@top');
+
+Route::post('/food/menu/post/{id}','MenuController@store');
+
+Route::get('/food/menu/post','MenuController@post');
 
 Route::get('/', 'HomeController@index')->name('home');
+
+});
+
+Auth::routes();

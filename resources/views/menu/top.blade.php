@@ -7,7 +7,8 @@
     <title>Menu Top</title>
 </head>
 <body>
-    <a href=""></a>現在登録されている食材で検索<br>
-    <a href="">テンプレートを用いて検索</a><br>
+    <a href="/food/menu/search/management/{{Auth::User()->id}}">現在登録されている食材で検索</a><br>
+    <a href="/food/menu/search/template/{{Auth::User()->id}}">テンプレートを用いて検索</a><br>
+    <a href="/food/top">戻る</a>
 </body>
 @endsection

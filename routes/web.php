@@ -39,7 +39,11 @@ Route::get('/food/management/updated','ManagementController@updated');
 
 Route::get('/food/management','ManagementController@top');
 
-Route::get('/food/menu/top','MenuController@top');
+Route::get('/food/menu/detail/{id}','MenuController@show');
+
+Route::get('/food/menu/search/management/{id}','MenuController@search_management');
+
+Route::get('/food/menu/search/top','MenuController@top');
 
 Route::post('/food/menu/post/{id}','MenuController@store');
 

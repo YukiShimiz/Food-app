@@ -20,6 +20,10 @@ class Menu extends Model
         return $this->hasMany('App\Blog');
     }
     
+    public function getPaginate(int $limit_count=10){
+        return $this->paginate($limit_count);
+    }
+    
     public function menu_ingredients(){
         return $this->hasOne('App\MenuBean');
         return $this->hasOne('App\MenuBeef');

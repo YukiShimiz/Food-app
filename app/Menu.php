@@ -8,6 +8,14 @@ class Menu extends Model
 {
     protected $table = 'menu';
     
+    protected $fillable = [
+        
+        'user_id',
+        'title',
+        'body'
+        
+        ];
+    
     public function blog(){
         return $this->hasMany('App\Blog');
     }

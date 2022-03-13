@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMenuTable extends Migration
+class AddTimestampsToMenuCarbohydratesCerealsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class CreateMenuTable extends Migration
      */
     public function up()
     {
-        Schema::create('menu', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->char('menu_name',200);
+        Schema::table('menu_carbohydrates_cereals', function (Blueprint $table) {
             $table->timestamps();
         });
     }
@@ -27,6 +25,8 @@ class CreateMenuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menu');
+        Schema::table('menu_carbohydrates_cereals', function (Blueprint $table) {
+            //
+        });
     }
 }

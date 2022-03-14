@@ -452,4 +452,158 @@ class TemplateController extends Controller
         return view('template/stored');
     }
     
+    public function show_detail(TemplateCarbohydratesBread $template_carbohydrates_bread,
+    TemplateCarbohydratesCereals $template_carbohydrates_cereals,TemplateCarbohydratesNoodles $template_carbohydrates_noodles,
+    TemplateBean $template_bean,TemplateBeef $template_beef,TemplateCannedBottled $template_canned_bottled,
+    TemplateCheese $template_cheese,TemplateChicken $template_chicken,TemplateDressing $template_dressing,
+    TemplateDriedMaterial $template_dried_material,TemplateEggmilk $template_eggmilk,TemplateFruits $template_fruits,
+    TemplateHerbs $template_herbs,TemplateKneadedMaterial $template_kneaded_material,TemplateMarineProducts $template_marine_products,
+    TemplateMushroom $template_mushroom,TemplateMutton $template_mutton,TemplateOil $template_oil,
+    TemplateOtherMeat $template_other_meat,TemplatePork $template_pork,TemplatePowders $template_powders,
+    TemplateSeasoning $template_seasoning,TemplateSeaweed $template_seaweed,TemplateShellfish $template_shellfish,
+    TemplateShrimp $template_shrimp,TemplateSpices $template_spices,TemplateTohunattopickles $template_tohunattopickles,
+    TemplateVegetable $template_vegetable,TemplateYakumi $template_yakumi,TemplateTitleBody $template_title_body,$id){
+        
+        $template_bean=$template_bean->find($id);
+        $template_beef=$template_beef->find($id);
+        $template_canned_bottled=$template_canned_bottled->find($id);
+        $template_carbohydrates_bread=$template_carbohydrates_bread->find($id);
+        $template_carbohydrates_cereals=$template_carbohydrates_cereals->find($id);
+        $template_carbohydrates_noodles=$template_carbohydrates_noodles->find($id);
+        $template_cheese=$template_cheese->find($id);
+        $template_chicken=$template_chicken->find($id);
+        $template_dressing=$template_dressing->find($id);
+        $template_dried_material=$template_dried_material->find($id);
+        $template_eggmilk=$template_eggmilk->find($id);
+        $template_fruits=$template_fruits->find($id);
+        $template_herbs=$template_herbs->find($id);
+        $template_kneaded_material=$template_kneaded_material->find($id);
+        $template_marine_products=$template_marine_products->find($id);
+        $template_mushroom=$template_mushroom->find($id);
+        $template_mutton=$template_mutton->find($id);
+        $template_oil=$template_oil->find($id);
+        $template_other_meat=$template_other_meat->find($id);
+        $template_pork=$template_pork->find($id);
+        $template_powders=$template_powders->find($id);
+        $template_seasoning=$template_seasoning->find($id);
+        $template_seaweed=$template_seaweed->find($id);
+        $template_shellfish=$template_shellfish->find($id);
+        $template_shrimp=$template_shrimp->find($id);
+        $template_spices=$template_spices->find($id);
+        $template_title_body=$template_title_body->find($id);
+        $template_tohunattopickles=$template_tohunattopickles->find($id);
+        $template_vegetable=$template_vegetable->find($id);
+        $template_yakumi=$template_yakumi->find($id);
+        
+        return view('template/detail')->with(['id'=>$id])
+        ->with(['template_carbohydrates_bread'=>$template_carbohydrates_bread])
+        ->with(['template_carbohydrates_cereals'=>$template_carbohydrates_cereals])
+        ->with(['template_carbohydrates_noodles'=>$template_carbohydrates_noodles])
+        ->with(['template_bean'=>$template_bean])
+        ->with(['template_beef'=>$template_beef])
+        ->with(['template_canned_bottled'=>$template_canned_bottled])
+        ->with(['template_cheese'=>$template_cheese])
+        ->with(['template_chicken'=>$template_chicken])
+        ->with(['template_dressing'=>$template_dressing])
+        ->with(['template_dried_material'=>$template_dried_material])
+        ->with(['template_eggmilk'=>$template_eggmilk])
+        ->with(['template_fruits'=>$template_fruits])
+        ->with(['template_herbs'=>$template_herbs])
+        ->with(['template_kneaded_material'=>$template_kneaded_material])
+        ->with(['template_marine_products'=>$template_marine_products])
+        ->with(['template_mushroom'=>$template_mushroom])
+        ->with(['template_mutton'=>$template_mutton])
+        ->with(['template_oil'=>$template_oil])
+        ->with(['template_other_meat'=>$template_other_meat])
+        ->with(['template_pork'=>$template_pork])
+        ->with(['template_powders'=>$template_powders])
+        ->with(['template_seasoning'=>$template_seasoning])
+        ->with(['template_seaweed'=>$template_seaweed])
+        ->with(['template_shellfish'=>$template_shellfish])
+        ->with(['template_shrimp'=>$template_shrimp])
+        ->with(['template_spices'=>$template_spices])
+        ->with(['template_tohunattopickles'=>$template_tohunattopickles])
+        ->with(['template_vegetable'=>$template_vegetable])
+        ->with(['template_yakumi'=>$template_yakumi])
+        ->with(['template_title_body'=>$template_title_body]);
+        
+    }
+    
+    public function show_detail_menu(TemplateCarbohydratesBread $template_carbohydrates_bread,
+    TemplateCarbohydratesCereals $template_carbohydrates_cereals,TemplateCarbohydratesNoodles $template_carbohydrates_noodles,
+    TemplateBean $template_bean,TemplateBeef $template_beef,TemplateCannedBottled $template_canned_bottled,
+    TemplateCheese $template_cheese,TemplateChicken $template_chicken,TemplateDressing $template_dressing,
+    TemplateDriedMaterial $template_dried_material,TemplateEggmilk $template_eggmilk,TemplateFruits $template_fruits,
+    TemplateHerbs $template_herbs,TemplateKneadedMaterial $template_kneaded_material,TemplateMarineProducts $template_marine_products,
+    TemplateMushroom $template_mushroom,TemplateMutton $template_mutton,TemplateOil $template_oil,
+    TemplateOtherMeat $template_other_meat,TemplatePork $template_pork,TemplatePowders $template_powders,
+    TemplateSeasoning $template_seasoning,TemplateSeaweed $template_seaweed,TemplateShellfish $template_shellfish,
+    TemplateShrimp $template_shrimp,TemplateSpices $template_spices,TemplateTohunattopickles $template_tohunattopickles,
+    TemplateVegetable $template_vegetable,TemplateYakumi $template_yakumi,TemplateTitleBody $template_title_body,$id){
+        
+        $template_bean=$template_bean->find($id);
+        $template_beef=$template_beef->find($id);
+        $template_canned_bottled=$template_canned_bottled->find($id);
+        $template_carbohydrates_bread=$template_carbohydrates_bread->find($id);
+        $template_carbohydrates_cereals=$template_carbohydrates_cereals->find($id);
+        $template_carbohydrates_noodles=$template_carbohydrates_noodles->find($id);
+        $template_cheese=$template_cheese->find($id);
+        $template_chicken=$template_chicken->find($id);
+        $template_dressing=$template_dressing->find($id);
+        $template_dried_material=$template_dried_material->find($id);
+        $template_eggmilk=$template_eggmilk->find($id);
+        $template_fruits=$template_fruits->find($id);
+        $template_herbs=$template_herbs->find($id);
+        $template_kneaded_material=$template_kneaded_material->find($id);
+        $template_marine_products=$template_marine_products->find($id);
+        $template_mushroom=$template_mushroom->find($id);
+        $template_mutton=$template_mutton->find($id);
+        $template_oil=$template_oil->find($id);
+        $template_other_meat=$template_other_meat->find($id);
+        $template_pork=$template_pork->find($id);
+        $template_powders=$template_powders->find($id);
+        $template_seasoning=$template_seasoning->find($id);
+        $template_seaweed=$template_seaweed->find($id);
+        $template_shellfish=$template_shellfish->find($id);
+        $template_shrimp=$template_shrimp->find($id);
+        $template_spices=$template_spices->find($id);
+        $template_title_body=$template_title_body->find($id);
+        $template_tohunattopickles=$template_tohunattopickles->find($id);
+        $template_vegetable=$template_vegetable->find($id);
+        $template_yakumi=$template_yakumi->find($id);
+        
+        return view('template/detail_menu')->with(['id'=>$id])
+        ->with(['template_carbohydrates_bread'=>$template_carbohydrates_bread])
+        ->with(['template_carbohydrates_cereals'=>$template_carbohydrates_cereals])
+        ->with(['template_carbohydrates_noodles'=>$template_carbohydrates_noodles])
+        ->with(['template_bean'=>$template_bean])
+        ->with(['template_beef'=>$template_beef])
+        ->with(['template_canned_bottled'=>$template_canned_bottled])
+        ->with(['template_cheese'=>$template_cheese])
+        ->with(['template_chicken'=>$template_chicken])
+        ->with(['template_dressing'=>$template_dressing])
+        ->with(['template_dried_material'=>$template_dried_material])
+        ->with(['template_eggmilk'=>$template_eggmilk])
+        ->with(['template_fruits'=>$template_fruits])
+        ->with(['template_herbs'=>$template_herbs])
+        ->with(['template_kneaded_material'=>$template_kneaded_material])
+        ->with(['template_marine_products'=>$template_marine_products])
+        ->with(['template_mushroom'=>$template_mushroom])
+        ->with(['template_mutton'=>$template_mutton])
+        ->with(['template_oil'=>$template_oil])
+        ->with(['template_other_meat'=>$template_other_meat])
+        ->with(['template_pork'=>$template_pork])
+        ->with(['template_powders'=>$template_powders])
+        ->with(['template_seasoning'=>$template_seasoning])
+        ->with(['template_seaweed'=>$template_seaweed])
+        ->with(['template_shellfish'=>$template_shellfish])
+        ->with(['template_shrimp'=>$template_shrimp])
+        ->with(['template_spices'=>$template_spices])
+        ->with(['template_tohunattopickles'=>$template_tohunattopickles])
+        ->with(['template_vegetable'=>$template_vegetable])
+        ->with(['template_yakumi'=>$template_yakumi])
+        ->with(['template_title_body'=>$template_title_body]);
+        
+    }
+    
 }

@@ -10,12 +10,12 @@
     <h2>テンプレート一覧</h2>
     @foreach($templates as $template)
         <p>{{$template->title}}</p>
-        <a href="/food/template/detail/{{$template->id}}">詳細</a><br>
-        <a href="/food/management/template/{{$template->id}}">編集・削除</a><br>
+        <a href="/food/menu/template/detail/{{$template->id}}">詳細</a><br>
+        <a href="/food/menu/search/template/id/{{$template->id}}">このテンプレートを基に検索</a><br>
     @endforeach
     <div class='paginate'>
         {{$templates->links()}}
     </div>
-    <a href="/food/management/template">戻る</a>
+    <a href="/food/menu/search/top">戻る</a>
 </body>
 @endsection

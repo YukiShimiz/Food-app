@@ -64,6 +64,36 @@ use App\ManagementSpices;
 use App\ManagementTohunattopickles;
 use App\ManagementVegetable;
 use App\ManagementYakumi;
+use App\TemplateTitleBody;
+use App\TemplateBean;
+use App\TemplateBeef;
+use App\TemplateCannedBottled;
+use App\TemplateCarbohydratesBread;
+use App\TemplateCarbohydratesCereals;
+use App\TemplateCarbohydratesNoodles;
+use App\TemplateCheese;
+use App\TemplateChicken;
+use App\TemplateDressing;
+use App\TemplateDriedMaterial;
+use App\TemplateEggmilk;
+use App\TemplateFruits;
+use App\TemplateHerbs;
+use App\TemplateKneadedMaterial;
+use App\TemplateMarineProducts;
+use App\TemplateMushroom;
+use App\TemplateMutton;
+use App\TemplateOil;
+use App\TemplateOtherMeat;
+use App\TemplatePork;
+use App\TemplatePowders;
+use App\TemplateSeasoning;
+use App\TemplateSeaweed;
+use App\TemplateShellfish;
+use App\TemplateShrimp;
+use App\TemplateSpices;
+use App\TemplateTohunattopickles;
+use App\TemplateVegetable;
+use App\TemplateYakumi;
 
 
 class MenuController extends Controller
@@ -808,8 +838,9 @@ class MenuController extends Controller
             $id_search_seasoning,$id_search_seaweed,$id_search_shellfish,$id_search_shrimp,
             $id_search_spices,$id_search_tohunattopickles,$id_search_vegetable,$id_search_yakumi);
             
-        
-        return view('menu/index')->with(['results'=>$results])->with(['menu'=>$menu->getPaginate()]);
+            $menu = $menu->find($results);
+            
+        return view('menu/index')->with(['results'=>$results])->with(['menu'=>$menu]);
         
     }
     
@@ -858,6 +889,723 @@ class MenuController extends Controller
         
         
         return view('menu/show')->with(['id'=>$id])
+        ->with(['menu_carbohydrates_bread'=>$menu_carbohydrates_bread])
+        ->with(['menu_carbohydrates_cereals'=>$menu_carbohydrates_cereals])
+        ->with(['menu_carbohydrates_noodles'=>$menu_carbohydrates_noodles])
+        ->with(['menu_bean'=>$menu_bean])
+        ->with(['menu_beef'=>$menu_beef])
+        ->with(['menu_canned_bottled'=>$menu_canned_bottled])
+        ->with(['menu_cheese'=>$menu_cheese])
+        ->with(['menu_chicken'=>$menu_chicken])
+        ->with(['menu_dressing'=>$menu_dressing])
+        ->with(['menu_dried_material'=>$menu_dried_material])
+        ->with(['menu_eggmilk'=>$menu_eggmilk])
+        ->with(['menu_fruits'=>$menu_fruits])
+        ->with(['menu_herbs'=>$menu_herbs])
+        ->with(['menu_kneaded_material'=>$menu_kneaded_material])
+        ->with(['menu_marine_products'=>$menu_marine_products])
+        ->with(['menu_mushroom'=>$menu_mushroom])
+        ->with(['menu_mutton'=>$menu_mutton])
+        ->with(['menu_oil'=>$menu_oil])
+        ->with(['menu_other_meat'=>$menu_other_meat])
+        ->with(['menu_pork'=>$menu_pork])
+        ->with(['menu_powders'=>$menu_powders])
+        ->with(['menu_seasoning'=>$menu_seasoning])
+        ->with(['menu_seaweed'=>$menu_seaweed])
+        ->with(['menu_shellfish'=>$menu_shellfish])
+        ->with(['menu_shrimp'=>$menu_shrimp])
+        ->with(['menu_spices'=>$menu_spices])
+        ->with(['menu_tohunattopickles'=>$menu_tohunattopickles])
+        ->with(['menu_vegetable'=>$menu_vegetable])
+        ->with(['menu_yakumi'=>$menu_yakumi])
+        ->with(['menu'=>$menu]);
+    }
+    
+    public function index_template(User $user,$id){
+        
+        $user = $user->find($id);
+        return view('menu/template_index')->with(['templates'=>$user->getByTemplate()]);
+        
+    }
+    
+    public function search_template(TemplateCarbohydratesBread $template_carbohydrates_bread,
+    TemplateCarbohydratesCereals $template_carbohydrates_cereals,TemplateCarbohydratesNoodles $template_carbohydrates_noodles,
+    TemplateBean $template_bean,TemplateBeef $template_beef,TemplateCannedBottled $template_canned_bottled,
+    TemplateCheese $template_cheese,TemplateChicken $template_chicken,TemplateDressing $template_dressing,
+    TemplateDriedMaterial $template_dried_material,TemplateEggmilk $template_eggmilk,TemplateFruits $template_fruits,
+    TemplateHerbs $template_herbs,TemplateKneadedMaterial $template_kneaded_material,TemplateMarineProducts $template_marine_products,
+    TemplateMushroom $template_mushroom,TemplateMutton $template_mutton,TemplateOil $template_oil,
+    TemplateOtherMeat $template_other_meat,TemplatePork $template_pork,TemplatePowders $template_powders,
+    TemplateSeasoning $template_seasoning,TemplateSeaweed $template_seaweed,TemplateShellfish $template_shellfish,
+    TemplateShrimp $template_shrimp,TemplateSpices $template_spices,TemplateTohunattopickles $template_tohunattopickles,
+    TemplateVegetable $template_vegetable,TemplateYakumi $template_yakumi,TemplateTitleBody $template_title_body,$id,
+    MenuCarbohydratesBread $menu_carbohydrates_bread,
+    MenuCarbohydratesCereals $menu_carbohydrates_cereals,MenuCarbohydratesNoodles $menu_carbohydrates_noodles,
+    MenuBean $menu_bean,MenuBeef $menu_beef,MenuCannedBottled $menu_canned_bottled,
+    MenuCheese $menu_cheese,MenuChicken $menu_chicken,MenuDressing $menu_dressing,
+    MenuDriedMaterial $menu_dried_material,MenuEggmilk $menu_eggmilk,MenuFruits $menu_fruits,
+    MenuHerbs $menu_herbs,MenuKneadedMaterial $menu_kneaded_material,MenuMarineProducts $menu_marine_products,
+    MenuMushroom $menu_mushroom,MenuMutton $menu_mutton,MenuOil $menu_oil,
+    MenuOtherMeat $menu_other_meat,MenuPork $menu_pork,MenuPowders $menu_powders,
+    MenuSeasoning $menu_seasoning,MenuSeaweed $menu_seaweed,MenuShellfish $menu_shellfish,
+    MenuShrimp $menu_shrimp,MenuSpices $menu_spices,MenuTohunattopickles $menu_tohunattopickles,
+    MenuVegetable $menu_vegetable,MenuYakumi $menu_yakumi,Menu $menu){
+        
+        $template_bean=$template_bean->find($id);
+        $template_beef=$template_beef->find($id);
+        $template_canned_bottled=$template_canned_bottled->find($id);
+        $template_carbohydrates_bread=$template_carbohydrates_bread->find($id);
+        $template_carbohydrates_cereals=$template_carbohydrates_cereals->find($id);
+        $template_carbohydrates_noodles=$template_carbohydrates_noodles->find($id);
+        $template_cheese=$template_cheese->find($id);
+        $template_chicken=$template_chicken->find($id);
+        $template_dressing=$template_dressing->find($id);
+        $template_dried_material=$template_dried_material->find($id);
+        $template_eggmilk=$template_eggmilk->find($id);
+        $template_fruits=$template_fruits->find($id);
+        $template_herbs=$template_herbs->find($id);
+        $template_kneaded_material=$template_kneaded_material->find($id);
+        $template_marine_products=$template_marine_products->find($id);
+        $template_mushroom=$template_mushroom->find($id);
+        $template_mutton=$template_mutton->find($id);
+        $template_oil=$template_oil->find($id);
+        $template_other_meat=$template_other_meat->find($id);
+        $template_pork=$template_pork->find($id);
+        $template_powders=$template_powders->find($id);
+        $template_seasoning=$template_seasoning->find($id);
+        $template_seaweed=$template_seaweed->find($id);
+        $template_shellfish=$template_shellfish->find($id);
+        $template_shrimp=$template_shrimp->find($id);
+        $template_spices=$template_spices->find($id);
+        $template_tohunattopickles=$template_tohunattopickles->find($id);
+        $template_vegetable=$template_vegetable->find($id);
+        $template_yakumi=$template_yakumi->find($id);
+        $template_title_body=$template_title_body->find($id);
+
+        $search_bean = MenuBean::where([
+                
+                ['edamame','<=',$template_bean['edamame']],
+                ['soybean','<=',$template_bean['soybean']],
+                ['greenpeace','<=',$template_bean['greenpeace']],
+                ['broad_bean','<=',$template_bean['broad_bean']],
+                ['peanut','<=',$template_bean['peanut']],
+                ['endomame','<=',$template_bean['endomame']],
+                ['green_bean','<=',$template_bean['green_bean']]
+                
+            ])->get('id')->toArray();
+            
+            foreach($search_bean as $a){
+                $id_search_bean[] = $a['id'];
+            }
+            
+        $search_beef = MenuBeef::where([
+                
+                ['beef_minced','<=',$template_beef['beef_minced']],
+                ['beef_shoulder','<=',$template_beef['beef_shoulder']],
+                ['beef_boston_butt','<=',$template_beef['beef_boston_butt']],
+                ['beef_ribulose','<=',$template_beef['beef_ribulose']],
+                ['beef_sirloin','<=',$template_beef['beef_sirloin']],
+                ['beef_fillet','<=',$template_beef['beef_boston_butt']],
+                ['beef_ribs','<=',$template_beef['beef_ribs']],
+                ['beef_thigh','<=',$template_beef['beef_thigh']],
+                ['beef_rump','<=',$template_beef['beef_rump']],
+                ['beef_shin','<=',$template_beef['beef_shin']],
+                ['beef_neck','<=',$template_beef['beef_neck']]
+                
+            ])->get('id')->toArray();
+            
+            foreach($search_beef as $a){
+                $id_search_beef[] = $a['id'];
+            }
+            
+        $search_canned_bottled = MenuCannedBottled::where([
+            
+                ['canned_fish_and_shellfish','<=',$template_canned_bottled['canned_fish_and_shellfish']],
+                ['canned_fruit','<=',$template_canned_bottled['canned_fruit']]
+                
+            ])->get('id')->toArray();
+            
+            foreach($search_canned_bottled as $a){
+                $id_search_canned_bottled[] =$a['id'];
+            }
+        
+        $search_carbohydrates_bread = MenuCarbohydratesBread::where([
+            
+                ['plain_bread','<=',$template_carbohydrates_bread['plain_bread']],
+                ['koppe_bread','<=',$template_carbohydrates_bread['koppe_bread']],
+                ['croissant','<=',$template_carbohydrates_bread['croissant']],
+                ['bread_roll','<=',$template_carbohydrates_bread['bread_roll']],
+                ['bagel','<=',$template_carbohydrates_bread['bagel']],
+                ['danish','<=',$template_carbohydrates_bread['danish']],
+                ['scone','<=',$template_carbohydrates_bread['scone']],
+                ['baguette','<=',$template_carbohydrates_bread['baguette']],
+                ['batal','<=',$template_carbohydrates_bread['batal']],
+                ['naan','<=',$template_carbohydrates_bread['naan']],
+                ['grissini','<=',$template_carbohydrates_bread['grissini']],
+                ['muffin','<=',$template_carbohydrates_bread['muffin']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_carbohydrates_bread as $a){
+                $id_search_carbohydrates_bread[] = $a['id'];
+            }
+            
+            $search_carbohydrates_cereals = MenuCarbohydratesCereals::where([
+            
+                ['rice','<=',$template_carbohydrates_cereals['rice']],
+                ['brown_rice','<=',$template_carbohydrates_cereals['brown_rice']],
+                ['millet','<=',$template_carbohydrates_cereals['millet']],
+                ['sticky_rice','<=',$template_carbohydrates_cereals['sticky_rice']],
+                ['rice_cake','<=',$template_carbohydrates_cereals['rice_cake']],
+                ['mochikinchaku','<=',$template_carbohydrates_cereals['mochikinchaku']],
+                ['cereal','<=',$template_carbohydrates_cereals['cereal']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_carbohydrates_cereals as $a){
+                $id_search_carbohydrates_cereals[] = $a['id'];
+            }
+            
+            $search_carbohydrates_noodles = MenuCarbohydratesNoodles::where([
+            
+                ['udon','<=',$template_carbohydrates_noodles['udon']],
+                ['somen','<=',$template_carbohydrates_noodles['somen']],
+                ['soba','<=',$template_carbohydrates_noodles['soba']],
+                ['pasta','<=',$template_carbohydrates_noodles['pasta']],
+                ['ramen','<=',$template_carbohydrates_noodles['ramen']],
+                ['fried_noodle','<=',$template_carbohydrates_noodles['fried_noodle']],
+                ['tsukemen','<=',$template_carbohydrates_noodles['tsukemen']],
+                ['hiyamugi','<=',$template_carbohydrates_noodles['hiyamugi']],
+                ['cold_noodle','<=',$template_carbohydrates_noodles['cold_noodle']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_carbohydrates_noodles as $a){
+                $id_search_carbohydrates_noodles[] = $a['id'];
+            }
+            
+            
+            $search_cheese = MenuCheese::where([
+            
+                ['camembert_cheese','<=',$template_cheese['camembert_cheese']],
+                ['cream_cheese','<=',$template_cheese['cream_cheese']],
+                ['gorgonzola_cheese','<=',$template_cheese['gorgonzola_cheese']],
+                ['gouda_cheese','<=',$template_cheese['gouda_cheese']],
+                ['cheddar_cheese','<=',$template_cheese['cheddar_cheese']],
+                ['mascarpone_cheese','<=',$template_cheese['mascarpone_cheese']],
+                ['mozzarella_cheese','<=',$template_cheese['mozzarella_cheese']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_cheese as $a){
+                $id_search_cheese[] = $a['id'];
+            }
+            
+            $search_chicken = MenuChicken::where([
+            
+                ['chicken_breast','<=',$template_chicken['chicken_breast']],
+                ['chicken_thigh','<=',$template_chicken['chicken_thigh']],
+                ['chicken_scissor','<=',$template_chicken['chicken_scissor']],
+                ['chicken_heart','<=',$template_chicken['chicken_heart']],
+                ['chicken_lever','<=',$template_chicken['chicken_lever']],
+                ['chicken_sand','<=',$template_chicken['chicken_sand']],
+                ['chicken_wing','<=',$template_chicken['chicken_wing']],
+                ['chicken_neck_skin','<=',$template_chicken['chicken_neck_skin']],
+                ['chicken_cartilage','<=',$template_chicken['chicken_cartilage']],
+                ['chicken_tail','<=',$template_chicken['chicken_tail']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_chicken as $a){
+                $id_search_chicken[] = $a['id'];
+            }
+            
+            $search_dressing = MenuDressing::where([
+            
+                ['italian_dressing','<=',$template_dressing['italian_dressing']],
+                ['green_perilla_dressing','<=',$template_dressing['green_perilla_dressing']],
+                ['sesame_dressing','<=',$template_dressing['sesame_dressing']],
+                ['caesar_dressing','<=',$template_dressing['caesar_dressing']],
+                ['soy_sauce_dressing','<=',$template_dressing['soy_sauce_dressing']],
+                ['chinese_dressing','<=',$template_dressing['chinese_dressing']],
+                ['french_dressing','<=',$template_dressing['french_dressing']],
+                ['wasabi_soy_sauce_dressing','<=',$template_dressing['wasabi_soy_sauce_dressing']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_dressing as $a){
+                $id_search_dressing[] = $a['id'];
+            }
+            
+            $search_dried_material = MenuDriedMaterial::where([
+            
+                ['green_laver','<=',$template_dried_material['green_laver']],
+                ['seasoned_seaweed','<=',$template_dried_material['seasoned_seaweed']],
+                ['katsuobushi','<=',$template_dried_material['katsuobushi']],
+                ['dried_hijiki','<=',$template_dried_material['dried_hijiki']],
+                ['dried_beans','<=',$template_dried_material['dried_beans']],
+                ['dried_vagetables','<=',$template_dried_material['dried_vagetables']],
+                ['dried_yuba','<=',$template_dried_material['dried_yuba']],
+                ['dried_seaweed','<=',$template_dried_material['dried_seaweed']],
+                ['kanpyo','<=',$template_dried_material['kanpyo']],
+                ['wood_ear','<=',$template_dried_material['wood_ear']],
+                ['kinako','<=',$template_dried_material['kinako']],
+                ['kiriboshi_daikon','<=',$template_dried_material['kiriboshi_daikon']],
+                ['kuzukiri','<=',$template_dried_material['kuzukiri']],
+                ['kezuribushi','<=',$template_dried_material['kezuribushi']],
+                ['koya_tohu','<=',$template_dried_material['koya_tohu']],
+                ['sesame','<=',$template_dried_material['sesame']],
+                ['dashi_kelp','<=',$template_dried_material['dashi_kelp']],
+                ['tororo_kelp','<=',$template_dried_material['tororo_kelp']],
+                ['niboshi','<=',$template_dried_material['niboshi']],
+                ['harusame','<=',$template_dried_material['harusame']],
+                ['wheat_bran','<=',$template_dried_material['wheat_bran']],
+                ['hurikake','<=',$template_dried_material['hurikake']],
+                ['dried_shrimp','<=',$template_dried_material['dried_shrimp']],
+                ['grilled_seaweed','<=',$template_dried_material['grilled_seaweed']]
+                
+            ])->get('id')->toArray();
+            
+            foreach($search_dried_material as $a){
+                $id_search_dried_material[] = $a['id'];
+            }
+            
+            $search_eggmilk = MenuEggmilk::where([
+            
+                ['yogurt','<=',$template_eggmilk['yogurt']],
+                ['milk','<=',$template_eggmilk['milk']],
+                ['fresh_cream','<=',$template_eggmilk['fresh_cream']],
+                ['butter','<=',$template_eggmilk['butter']],
+                ['margarine','<=',$template_eggmilk['margarine']],
+                ['egg','<=',$template_eggmilk['egg']],
+                ['quail_egg','<=',$template_eggmilk['quail_egg']],
+                ['century_egg','<=',$template_eggmilk['century_egg']],
+                ['hot_spring_egg','<=',$template_eggmilk['hot_spring_egg']],
+                ['smoked_egg','<=',$template_eggmilk['smoked_egg']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_eggmilk as $a){
+                $id_search_eggmilk[] = $a['id'];
+            }
+            
+            $search_fruits = MenuFruits::where([
+            
+                ['apricot','<=',$template_fruits['apricot']],
+                ['strawberry','<=',$template_fruits['strawberry']],
+                ['fig','<=',$template_fruits['fig']],
+                ['plum','<=',$template_fruits['plum']],
+                ['orange','<=',$template_fruits['orange']],
+                ['persimmon','<=',$template_fruits['persimmon']],
+                ['kiwifruit','<=',$template_fruits['kiwifruit']],
+                ['chestnut','<=',$template_fruits['chestnut']],
+                ['grapefruit','<=',$template_fruits['grapefruit']],
+                ['cherry','<=',$template_fruits['cherry']],
+                ['pomegranate','<=',$template_fruits['pomegranate']],
+                ['watermelon','<=',$template_fruits['watermelon']],
+                ['japanese_pear','<=',$template_fruits['japanese_pear']],
+                ['pear','<=',$template_fruits['pear']],
+                ['pineapple','<=',$template_fruits['pineapple']],
+                ['banana','<=',$template_fruits['banana']],
+                ['loquat','<=',$template_fruits['loquat']],
+                ['grape','<=',$template_fruits['grape']],
+                ['blueberry','<=',$template_fruits['blueberry']],
+                ['other_berries','<=',$template_fruits['other_berries']],
+                ['mango','<=',$template_fruits['mango']],
+                ['mikan','<=',$template_fruits['mikan']],
+                ['melon','<=',$template_fruits['melon']],
+                ['peach','<=',$template_fruits['peach']],
+                ['apple','<=',$template_fruits['apple']],
+                ['lemon','<=',$template_fruits['lemon']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_fruits as $a){
+                $id_search_fruits[] = $a['id'];
+            }
+            
+            $search_herbs = MenuHerbs::where([
+            
+                ['coriander','<=',$template_herbs['coriander']],
+                ['basil','<=',$template_herbs['basil']],
+                ['parsley','<=',$template_herbs['parsley']],
+                ['arugula','<=',$template_herbs['arugula']],
+                ['lemongrass','<=',$template_herbs['lemongrass']],
+                ['rosemary','<=',$template_herbs['rosemary']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_herbs as $a){
+                $id_search_herbs[] = $a['id'];
+            }
+            
+            $search_kneaded_material = MenuKneadedMaterial::where([
+            
+                ['kamaboko','<=',$template_kneaded_material['kamaboko']],
+                ['datemaki','<=',$template_kneaded_material['datemaki']],
+                ['tsumire','<=',$template_kneaded_material['tsumire']],
+                ['namachikuwa','<=',$template_kneaded_material['namachikuwa']],
+                ['hanpen','<=',$template_kneaded_material['hanpen']],
+                ['yakichikuwa','<=',$template_kneaded_material['yakichikuwa']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_kneaded_material as $a){
+                $id_search_kneaded_material[] = $a['id'];
+            }
+            
+            $search_marine_products = MenuMarineProducts::where([
+            
+                ['horse_mackerel','<=',$template_marine_products['horse_mackerel']],
+                ['anago','<=',$template_marine_products['anago']],
+                ['squid','<=',$template_marine_products['squid']],
+                ['ikura','<=',$template_marine_products['ikura']],
+                ['sardine','<=',$template_marine_products['sardine']],
+                ['unagi','<=',$template_marine_products['unagi']],
+                ['sea_urchin','<=',$template_marine_products['sea_urchin']],
+                ['herring_roe','<=',$template_marine_products['herring_roe']],
+                ['skipjack','<=',$template_marine_products['skipjack']],
+                ['crab','<=',$template_marine_products['crab']],
+                ['salmon','<=',$template_marine_products['salmon']],
+                ['mackerel','<=',$template_marine_products['mackerel']],
+                ['pacific_saury','<=',$template_marine_products['pacific_saury']],
+                ['shishamo','<=',$template_marine_products['shishamo']],
+                ['shirasu','<=',$template_marine_products['shirasu']],
+                ['sujiko','<=',$template_marine_products['sujiko']],
+                ['sea_bream','<=',$template_marine_products['sea_bream']],
+                ['octopus','<=',$template_marine_products['octopus']],
+                ['cod','<=',$template_marine_products['cod']],
+                ['tarako','<=',$template_marine_products['tarako']],
+                ['chirimen','<=',$template_marine_products['chirimen']],
+                ['puffer_fish','<=',$template_marine_products['puffer_fish']],
+                ['hokke','<=',$template_marine_products['hokke']],
+                ['tuna','<=',$template_marine_products['tuna']],
+                ['mentaiko','<=',$template_marine_products['mentaiko']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_marine_products as $a){
+                $id_search_marine_products[] = $a['id'];
+            }
+            
+            $search_mushroom = MenuMushroom::where([
+            
+                ['enokitake_red','<=',$template_mushroom['enokitake_red']],
+                ['enokitake_brown','<=',$template_mushroom['enokitake_brown']],
+                ['bunashimeji_brown','<=',$template_mushroom['bunashimeji_brown']],
+                ['bunashimeji_white','<=',$template_mushroom['bunashimeji_white']],
+                ['shitake','<=',$template_mushroom['shitake']],
+                ['king_trumpet','<=',$template_mushroom['king_trumpet']],
+                ['maitake','<=',$template_mushroom['maitake']],
+                ['maitake_white','<=',$template_mushroom['maitake_white']],
+                ['nameko','<=',$template_mushroom['nameko']],
+                ['mushroom','<=',$template_mushroom['mushroom']],
+                ['oyster_mushroom','<=',$template_mushroom['oyster_mushroom']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_mushroom as $a){
+                $id_search_mushroom[] = $a['id'];
+            }
+            
+            $search_mutton = MenuMutton::where([
+            
+                ['mutton_lose','<=',$template_mutton['mutton_lose']],
+                ['mutton_shoulder','<=',$template_mutton['mutton_shoulder']],
+                ['mutton_boston_butt','<=',$template_mutton['mutton_boston_butt']],
+                ['mutton_thigh','<=',$template_mutton['mutton_thigh']],
+                ['mutton_ribs','<=',$template_mutton['mutton_ribs']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_mutton as $a){
+                $id_search_mutton[] = $a['id'];
+            }
+            
+            $search_oil = MenuOil::where([
+            
+                ['flaxseed_oil','<=',$template_oil['flaxseed_oil']],
+                ['egoma_oil','<=',$template_oil['egoma_oil']],
+                ['olive_oil','<=',$template_oil['olive_oil']],
+                ['coconut_oil','<=',$template_oil['coconut_oil']],
+                ['sesame_oil','<=',$template_oil['sesame_oil']],
+                ['corn_oil','<=',$template_oil['corn_oil']],
+                ['salad_oil','<=',$template_oil['salad_oil']],
+                ['rapeseed_oil','<=',$template_oil['rapeseed_oil']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_oil as $a){
+                $id_search_oil[] = $a['id'];
+            }
+            
+            $search_other_meat = MenuOtherMeat::where([
+            
+                ['duck_meat','<=',$template_other_meat['duck_meat']],
+                ['venison','<=',$template_other_meat['venison']],
+                ['turckey','<=',$template_other_meat['turckey']],
+                ['bacon','<=',$template_other_meat['bacon']],
+                ['ham','<=',$template_other_meat['ham']],
+                ['sausage','<=',$template_other_meat['sausage']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_other_meat as $a){
+                $id_search_other_meat[] = $a['id'];
+            }
+            
+            $search_pork = MenuPork::where([
+            
+                ['pork_minced','<=',$template_pork['pork_minced']],
+                ['pork_shoulder','<=',$template_pork['pork_shoulder']],
+                ['pork_boston_butt','<=',$template_pork['pork_boston_butt']],
+                ['pork_lose','<=',$template_pork['pork_lose']],
+                ['pork_fillet','<=',$template_pork['pork_fillet']],
+                ['pork_ribs','<=',$template_pork['pork_ribs']],
+                ['pork_thigh','<=',$template_pork['pork_thigh']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_pork as $a){
+                $id_search_pork[] = $a['id'];
+            }
+            
+            $search_powders = MenuPowders::where([
+            
+                ['okonomiyaki_flour','<=',$template_powders['okonomiyaki_flour']],
+                ['starch','<=',$template_powders['starch']],
+                ['fried_chicken_flour','<=',$template_powders['fried_chicken_flour']],
+                ['flour','<=',$template_powders['flour']],
+                ['wheat_germ','<=',$template_powders['wheat_germ']],
+                ['rice_flour','<=',$template_powders['rice_flour']],
+                ['cornstarch','<=',$template_powders['cornstarch']],
+                ['buckwheat_flour','<=',$template_powders['buckwheat_flour']],
+                ['takoyaki_flour','<=',$template_powders['takoyaki_flour']],
+                ['tempura_flour','<=',$template_powders['tempura_flour']],
+                ['non_fried_flour','<=',$template_powders['non_fried_flour']],
+                ['bread_crumbs','<=',$template_powders['bread_crumbs']],
+                ['husuma','<=',$template_powders['husuma']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_powders as $a){
+                $id_search_powders[] = $a['id'];
+            }
+            
+            $search_seasoning = MenuSeasoning::where([
+            
+                ['worcestershire_sauce','<=',$template_seasoning['worcestershire_sauce']],
+                ['ketchup','<=',$template_seasoning['ketchup']],
+                ['sugar','<=',$template_seasoning['sugar']],
+                ['salt','<=',$template_seasoning['salt']],
+                ['vinegar','<=',$template_seasoning['vinegar']],
+                ['soy_sauce','<=',$template_seasoning['soy_sauce']],
+                ['dashi','<=',$template_seasoning['dashi']],
+                ['ponzu_sauce','<=',$template_seasoning['ponzu_sauce']],
+                ['mayonnaise','<=',$template_seasoning['mayonnaise']],
+                ['miso','<=',$template_seasoning['miso']],
+                ['noodle_soup','<=',$template_seasoning['noodle_soup']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_seasoning as $a){
+                $id_search_seasoning[] = $a['id'];
+            }
+            
+            $search_seaweed = MenuSeaweed::where([
+            
+                ['namamekabu','<=',$template_seaweed['namamekabu']],
+                ['namamozuku','<=',$template_seaweed['namamozuku']],
+                ['namawakame','<=',$template_seaweed['namawakame']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_seaweed as $a){
+                $id_search_seaweed[] = $a['id'];
+            }
+            
+            $search_shellfish = MenuShellfish::where([
+            
+                ['asari','<=',$template_shellfish['asari']],
+                ['oyster','<=',$template_shellfish['oyster']],
+                ['shijimi','<=',$template_shellfish['shijimi']],
+                ['hamaguri','<=',$template_shellfish['hamaguri']],
+                ['scallop','<=',$template_shellfish['scallop']],
+                ['hard_clam','<=',$template_shellfish['hard_clam']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_shellfish as $a){
+                $id_search_shellfish[] = $a['id'];
+            }
+            
+            $search_shrimp = MenuShrimp::where([
+            
+                ['whiteleg_shrimp','<=',$template_shrimp['whiteleg_shrimp']],
+                ['red_shrimp','<=',$template_shrimp['red_shrimp']],
+                ['black_tiger_shrimp','<=',$template_shrimp['black_tiger_shrimp']],
+                ['kurumaebi','<=',$template_shrimp['kurumaebi']],
+                ['button_shrimp','<=',$template_shrimp['button_shrimp']],
+                ['sweet_shrimp','<=',$template_shrimp['sweet_shrimp']],
+                ['shiba_shrimp','<=',$template_shrimp['shiba_shrimp']],
+                ['sakura_shrimp','<=',$template_shrimp['sakura_shrimp']],
+                ['spiny_lobster','<=',$template_shrimp['spiny_lobster']],
+                ['lobster','<=',$template_shrimp['lobster']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_shrimp as $a){
+                $id_search_shrimp[] = $a['id'];
+            }
+            
+            $search_spices = MenuSpices::where([
+            
+                ['garlic_spice','<=',$template_spices['garlic_spice']],
+                ['cumin','<=',$template_spices['cumin']],
+                ['pepper','<=',$template_spices['pepper']],
+                ['shichimi','<=',$template_spices['shichimi']],
+                ['cinnamon','<=',$template_spices['cinnamon']],
+                ['turmeric','<=',$template_spices['turmeric']],
+                ['chili','<=',$template_spices['chili']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_spices as $a){
+                $id_search_spices[] = $a['id'];
+            }
+            
+            $search_tohunattopickles = MenuTohunattopickles::where([
+            
+                ['atsuage','<=',$template_tohunattopickles['atsuage']],
+                ['fried_tohu','<=',$template_tohunattopickles['fried_tohu']],
+                ['salted_plum','<=',$template_tohunattopickles['salted_plum']],
+                ['kimchi','<=',$template_tohunattopickles['kimchi']],
+                ['konjac','<=',$template_tohunattopickles['konjac']],
+                ['zha_cai','<=',$template_tohunattopickles['zha_cai']],
+                ['shirataki','<=',$template_tohunattopickles['shirataki']],
+                ['pickled_radish','<=',$template_tohunattopickles['pickled_radish']],
+                ['tsukudani','<=',$template_tohunattopickles['tsukudani']],
+                ['tohu','<=',$template_tohunattopickles['tohu']],
+                ['tohuyou','<=',$template_tohunattopickles['tohuyou']],
+                ['natto','<=',$template_tohunattopickles['natto']],
+                ['namayuba','<=',$template_tohunattopickles['namayuba']],
+                ['menma','<=',$template_tohunattopickles['menma']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_tohunattopickles as $a){
+                $id_search_tohunattopickles[] = $a['id'];
+            }
+            
+            $search_vegetable = MenuVegetable::where([
+            
+                ['asparagus','<=',$template_vegetable['asparagus']],
+                ['pumpkin','<=',$template_vegetable['pumpkin']],
+                ['cabbage','<=',$template_vegetable['cabbage']],
+                ['burdock','<=',$template_vegetable['burdock']],
+                ['satsumaimo','<=',$template_vegetable['satsumaimo']],
+                ['sansai','<=',$template_vegetable['sansai']],
+                ['potato','<=',$template_vegetable['potato']],
+                ['crowndaisy','<=',$template_vegetable['crowndaisy']],
+                ['garlic','<=',$template_vegetable['garlic']],
+                ['celery','<=',$template_vegetable['celery']],
+                ['daikon','<=',$template_vegetable['daikon']],
+                ['banboo_shoots','<=',$template_vegetable['banboo_shoots']],
+                ['onion','<=',$template_vegetable['onion']],
+                ['been_seedlings','<=',$template_vegetable['been_seedlings']],
+                ['corn','<=',$template_vegetable['corn']],
+                ['tomato','<=',$template_vegetable['tomato']],
+                ['eggplant','<=',$template_vegetable['eggplant']],
+                ['carrot','<=',$template_vegetable['carrot']],
+                ['green_onion','<=',$template_vegetable['green_onion']],
+                ['chinese_cabbage','<=',$template_vegetable['chinese_cabbage']],
+                ['green_pepper','<=',$template_vegetable['green_pepper']],
+                ['broccoli','<=',$template_vegetable['broccoli']],
+                ['rakkyo','<=',$template_vegetable['rakkyo']],
+                ['lettuce','<=',$template_vegetable['lettuce']],
+                ['lotus_root','<=',$template_vegetable['lotus_root']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_vegetable as $a){
+                $id_search_vegetable[] = $a['id'];
+            }
+            
+            $search_yakumi = MenuYakumi::where([
+            
+                ['oba','<=',$template_yakumi['oba']],
+                ['ginger','<=',$template_yakumi['ginger']],
+                ['mitsuba','<=',$template_yakumi['mitsuba']],
+                ['japanese_ginger','<=',$template_yakumi['japanese_ginger']],
+                ['yuzu','<=',$template_yakumi['yuzu']],
+                ['wasabi','<=',$template_yakumi['wasabi']]
+            
+            ])->get('id')->toArray();
+            
+            foreach($search_yakumi as $a){
+                $id_search_yakumi[] = $a['id'];
+            }
+        
+            $results = array_intersect($id_search_bean,$id_search_beef,
+            $id_search_canned_bottled,$id_search_carbohydrates_bread,$id_search_carbohydrates_cereals,
+            $id_search_carbohydrates_noodles,$id_search_cheese,$id_search_chicken,$id_search_dressing,
+            $id_search_dried_material,$id_search_eggmilk,$id_search_fruits,$id_search_herbs,
+            $id_search_kneaded_material,$id_search_marine_products,$id_search_mushroom,
+            $id_search_mutton,$id_search_oil,$id_search_other_meat,$id_search_pork,$id_search_powders,
+            $id_search_seasoning,$id_search_seaweed,$id_search_shellfish,$id_search_shrimp,
+            $id_search_spices,$id_search_tohunattopickles,$id_search_vegetable,$id_search_yakumi);
+            
+            $menu = $menu->find($results);
+            
+            return view('menu/index_template')->with(['results'=>$results])->with(['menu'=>$menu]);
+        
+    }
+    
+    public function show_template($id,MenuCarbohydratesBread $menu_carbohydrates_bread,
+    MenuCarbohydratesCereals $menu_carbohydrates_cereals,MenuCarbohydratesNoodles $menu_carbohydrates_noodles,
+    MenuBean $menu_bean,MenuBeef $menu_beef,MenuCannedBottled $menu_canned_bottled,
+    MenuCheese $menu_cheese,MenuChicken $menu_chicken,MenuDressing $menu_dressing,
+    MenuDriedMaterial $menu_dried_material,MenuEggmilk $menu_eggmilk,MenuFruits $menu_fruits,
+    MenuHerbs $menu_herbs,MenuKneadedMaterial $menu_kneaded_material,MenuMarineProducts $menu_marine_products,
+    MenuMushroom $menu_mushroom,MenuMutton $menu_mutton,MenuOil $menu_oil,
+    MenuOtherMeat $menu_other_meat,MenuPork $menu_pork,MenuPowders $menu_powders,
+    MenuSeasoning $menu_seasoning,MenuSeaweed $menu_seaweed,MenuShellfish $menu_shellfish,
+    MenuShrimp $menu_shrimp,MenuSpices $menu_spices,MenuTohunattopickles $menu_tohunattopickles,
+    MenuVegetable $menu_vegetable,MenuYakumi $menu_yakumi,Menu $menu){
+        
+        $menu_bean=$menu_bean->find($id);
+        $menu_beef=$menu_beef->find($id);
+        $menu_canned_bottled=$menu_canned_bottled->find($id);
+        $menu_carbohydrates_bread=$menu_carbohydrates_bread->find($id);
+        $menu_carbohydrates_cereals=$menu_carbohydrates_cereals->find($id);
+        $menu_carbohydrates_noodles=$menu_carbohydrates_noodles->find($id);
+        $menu_cheese=$menu_cheese->find($id);
+        $menu_chicken=$menu_chicken->find($id);
+        $menu_dressing=$menu_dressing->find($id);
+        $menu_dried_material=$menu_dried_material->find($id);
+        $menu_eggmilk=$menu_eggmilk->find($id);
+        $menu_fruits=$menu_fruits->find($id);
+        $menu_herbs=$menu_herbs->find($id);
+        $menu_kneaded_material=$menu_kneaded_material->find($id);
+        $menu_marine_products=$menu_marine_products->find($id);
+        $menu_mushroom=$menu_mushroom->find($id);
+        $menu_mutton=$menu_mutton->find($id);
+        $menu_oil=$menu_oil->find($id);
+        $menu_other_meat=$menu_other_meat->find($id);
+        $menu_pork=$menu_pork->find($id);
+        $menu_powders=$menu_powders->find($id);
+        $menu_seasoning=$menu_seasoning->find($id);
+        $menu_seaweed=$menu_seaweed->find($id);
+        $menu_shellfish=$menu_shellfish->find($id);
+        $menu_shrimp=$menu_shrimp->find($id);
+        $menu_spices=$menu_spices->find($id);
+        $menu_tohunattopickles=$menu_tohunattopickles->find($id);
+        $menu_vegetable=$menu_vegetable->find($id);
+        $menu_yakumi=$menu_yakumi->find($id);
+        $menu=$menu->find($id);
+        
+        
+        return view('menu/show_template')->with(['id'=>$id])
         ->with(['menu_carbohydrates_bread'=>$menu_carbohydrates_bread])
         ->with(['menu_carbohydrates_cereals'=>$menu_carbohydrates_cereals])
         ->with(['menu_carbohydrates_noodles'=>$menu_carbohydrates_noodles])

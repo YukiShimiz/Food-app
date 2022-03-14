@@ -10,9 +10,9 @@
     <h2>献立検索結果</h2>
     @foreach($menu as $i)
         <p>{{$i->title}}</p>
-        <a href="/food/menu/detail/{{$i->id}}">詳細</a><br>
+        <a href="/food/menu/detail/template/{{$i->id}}">詳細</a><br>
     @endforeach
     
-    <a href="/food/menu/search/top">戻る</a>
+    <a href="/food/menu/search/template/{{Auth::User()->id}}">戻る</a>
 </body>
 @endsection

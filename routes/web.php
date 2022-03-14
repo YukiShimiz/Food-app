@@ -17,6 +17,10 @@ Route::get('/food/top','TopController@top');
 
 Route::get('/food/first','ManagementController@first');
 
+Route::get('/food/blog/create/{id}','BlogController@create');
+
+Route::post('/food/blog/post','BlogController@store');
+
 Route::get('/food/template/detail/{id}','TemplateController@show_detail');
 
 Route::get('/food/management/create/{id}','ManagementController@create');

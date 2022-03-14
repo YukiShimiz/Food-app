@@ -11,6 +11,5 @@
     <a href="/food/menu/search/top">献立検索</a><br>
     <a href="/food/menu/post">献立を投稿する</a><br>
     <a href="/food/blog/index">ブログ一覧</a><br>
-    <a href="/food/blog/create">ブログを投稿する</a>
 </body>
 @endsection

@@ -671,6 +671,7 @@
                     <a>唐辛子</a>
                     <a>{{$menu_spices->chili}}</a><br>
         </details>
+    <a href="/food/blog/create/{{$menu->id}}">このメニューを作成しブログに投稿しよう！</a><br>
     <a href="/food/menu/search/management/{{Auth::User()->id}}">戻る</a>
 </body>
 @endsection

@@ -20,7 +20,7 @@ class Menu extends Model
         return $this->hasMany('App\Blog');
     }
     
-    public function getPaginate(int $limit_count=10){
+    public function getPaginateByLimit(int $limit_count=10){
         return $this->paginate($limit_count);
     }
     

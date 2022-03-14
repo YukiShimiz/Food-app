@@ -38,4 +38,30 @@ class BlogController extends Controller
         return view('blog/show')->with(['blog'=>$blog]);
         
     }
+    
+    public function edit(Blog $blog,$id){
+        
+        $blog = $blog->find($id);
+        return view('blog/edit')->with(['blog'=>$blog]);
+        
+    }
+    
+    public function edit_post(BlogRequest $request,Blog $blog,$id){
+        
+        $blog = $blog->find($id);
+        $input_blog = $request['blog'];
+        $blog -> fill($input_blog) -> save();
+        
+        return view('template/stored');
+        
+    }
+    
+    public function delete(Blog $blog,$id){
+        
+        $blog = $blog->find($id);
+        $blog->delete();
+        return view('template/stored');
+        
+    }
+    
 }

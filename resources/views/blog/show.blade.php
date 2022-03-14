@@ -10,6 +10,7 @@
     <h2>{{$blog->title}}</h2>
     <a>ユーザー：{{$blog->user->name}}</a><br>
     <a>メニュー：{{$blog->menu->title}}</a><br>
+    <a>投稿日時：{{$blog->created_at}}</a>
     <a>更新日時：{{$blog->updated_at}}</a>
     <p>{{$blog->body}}</p>
     <a href="/food/blog/index/{{Auth::User()->id}}">戻る</a><br>

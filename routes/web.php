@@ -25,6 +25,12 @@ Route::get('/food/blog/index/{id}','BlogController@index');
 
 Route::get('/food/blog/show/{id}','BlogController@show');
 
+Route::get('/food/blog/edit/{id}','BlogController@edit');
+
+Route::post('/food/blog/edit/{id}','BlogController@edit_post');
+
+Route::delete('/food/blog/delete/{id}','BlogController@delete');
+
 Route::get('/food/template/detail/{id}','TemplateController@show_detail');
 
 Route::get('/food/management/create/{id}','ManagementController@create');

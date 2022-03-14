@@ -176,7 +176,7 @@ class User extends Authenticatable
     }
     
     public function getByBlog(int $limit_count=10){
-        return $this->blog()->paginate($limit_count);
+        return $this->blog()->orderBy('created_at','desc')->paginate($limit_count);
     }
     
     public function blog(){

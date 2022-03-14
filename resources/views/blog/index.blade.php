@@ -11,7 +11,7 @@
     @foreach($blogs as $blog)
         <p>{{$blog->title}}</p>
         <p>{{$blog->user->name}}</p>
-        <p>更新日時：{{$blog->updated_at}}</p>
+        <p>投稿日時：{{$blog->created_at}}</p>
         <a href="/food/blog/show/{{$blog->id}}">詳細</a><br>
         <a href="/food/blog/edit/{{$blog->id}}">編集・削除</a><br>
     @endforeach

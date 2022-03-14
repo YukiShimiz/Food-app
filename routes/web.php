@@ -21,6 +21,10 @@ Route::get('/food/blog/create/{id}','BlogController@create');
 
 Route::post('/food/blog/post','BlogController@store');
 
+Route::get('/food/blog/index/{id}','BlogController@index');
+
+Route::get('/food/blog/show/{id}','BlogController@show');
+
 Route::get('/food/template/detail/{id}','TemplateController@show_detail');
 
 Route::get('/food/management/create/{id}','ManagementController@create');

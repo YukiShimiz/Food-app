@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\BlogRequest;
 use App\Blog;
+use App\User;
 
 class BlogController extends Controller
 {
@@ -20,6 +21,21 @@ class BlogController extends Controller
         $post ->fill($input_blog)->save();
         
         return view('template/stored');
+        
+    }
+    
+    public function index(User $user,$id){
+        
+        $user = $user ->find($id);
+        
+        return view('blog/index')->with(['blogs'=>$user->getByBlog()]);
+        
+    }
+    
+    public function show(Blog $blog,$id){
+        
+        $blog = $blog->find($id);
+        return view('blog/show')->with(['blog'=>$blog]);
         
     }
 }

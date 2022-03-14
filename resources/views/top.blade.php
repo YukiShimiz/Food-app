@@ -10,6 +10,6 @@
     <a href="/food/management">食材を更新する</a><br>
     <a href="/food/menu/search/top">献立検索</a><br>
     <a href="/food/menu/post">献立を投稿する</a><br>
-    <a href="/food/blog/index">ブログ一覧</a><br>
+    <a href="/food/blog/index/{{Auth::User()->id}}">ブログ一覧</a><br>
 </body>
 @endsection

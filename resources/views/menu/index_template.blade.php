@@ -36,7 +36,7 @@
         <div class="card" style="width: 20rem;">
               <div class="card-body">
                 <h4 class="card-title">・{{$i->title}}</h4>
-                <a href="/food/menu/detail/{{$i->id}}">詳細</a><br>
+                <a href="/food/menu/detail/template/{{$i->id}}">詳細</a><br>
               </div>
         </div>
         @endforeach

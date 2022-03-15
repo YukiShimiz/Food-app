@@ -829,7 +829,7 @@ class MenuController extends Controller
                 $id_search_yakumi[] = $a['id'];
             }
             
-            $results = array_intersect($id_search_bean,$id_search_beef,
+            $j = array_intersect($id_search_bean,$id_search_beef,
             $id_search_canned_bottled,$id_search_carbohydrates_bread,$id_search_carbohydrates_cereals,
             $id_search_carbohydrates_noodles,$id_search_cheese,$id_search_chicken,$id_search_dressing,
             $id_search_dried_material,$id_search_eggmilk,$id_search_fruits,$id_search_herbs,
@@ -837,6 +837,9 @@ class MenuController extends Controller
             $id_search_mutton,$id_search_oil,$id_search_other_meat,$id_search_pork,$id_search_powders,
             $id_search_seasoning,$id_search_seaweed,$id_search_shellfish,$id_search_shrimp,
             $id_search_spices,$id_search_tohunattopickles,$id_search_vegetable,$id_search_yakumi);
+            
+            shuffle($j);
+            $results = array_slice($j,0,10);
             
             $menu = $menu->find($results);
             
@@ -1546,7 +1549,7 @@ class MenuController extends Controller
                 $id_search_yakumi[] = $a['id'];
             }
         
-            $results = array_intersect($id_search_bean,$id_search_beef,
+            $j = array_intersect($id_search_bean,$id_search_beef,
             $id_search_canned_bottled,$id_search_carbohydrates_bread,$id_search_carbohydrates_cereals,
             $id_search_carbohydrates_noodles,$id_search_cheese,$id_search_chicken,$id_search_dressing,
             $id_search_dried_material,$id_search_eggmilk,$id_search_fruits,$id_search_herbs,
@@ -1554,6 +1557,9 @@ class MenuController extends Controller
             $id_search_mutton,$id_search_oil,$id_search_other_meat,$id_search_pork,$id_search_powders,
             $id_search_seasoning,$id_search_seaweed,$id_search_shellfish,$id_search_shrimp,
             $id_search_spices,$id_search_tohunattopickles,$id_search_vegetable,$id_search_yakumi);
+            
+            shuffle($j);
+            $results = array_slice($j,0,10);
             
             $menu = $menu->find($results);
             

@@ -172,7 +172,7 @@ class User extends Authenticatable
     }
     
     public function getByTemplate(int $limit_count=10){
-        return $this->template_title_body()->paginate($limit_count);
+        return $this->template_title_body()->orderBy('updated_at','desc')->paginate($limit_count);
     }
     
     public function getByBlog(int $limit_count=10){

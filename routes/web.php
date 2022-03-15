@@ -78,3 +78,5 @@ Route::get('/', 'HomeController@index')->name('home');
 });
 
 Auth::routes();
+
+Route::get('/test','TemplateController@test');

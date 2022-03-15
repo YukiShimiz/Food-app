@@ -7,11 +7,40 @@
     <title>Menu Search Detail</title>
 </head>
 <body>
-    <h2>タイトル</h2>
-        <p>{{$menu->title}}</p>
-    <h2>説明</h2>
-        <p>{{$menu->body}}</p>
-    <h2>必要な材料</h2>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" style="color:white">食材管理アプリ</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/food/top">ホーム</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/management">食材管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/menu/search/top">レシピ検索</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/menu/post">レシピ投稿</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/blog/index/{{Auth::User()->id}}">ブログ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="mt-3 ml-3">
+        <a type="button" class="btn btn-primary mt-3" href="/food/blog/create/{{$menu->id}}">このメニューを作成しブログに投稿しよう！</a><br>
+        <a type="button" class="btn btn-link mt-3 mb-3" href="/food/menu/search/management/{{Auth::User()->id}}">戻る</a>
+    <div class="card" style="width: 40rem;">
+      <div class="card-body">
+        <h4 class="card-title">・{{$menu->title}}</h4>
+        <p class="card-text">{{$menu->body}}</p>
+        <a>作成日時：{{$menu->created_at}}</a><br>
+        <a>更新日時：{{$menu->updated_at}}</a><br>
+      </div>
+    </div>
+    <h2 class="mt-3 ml-3">必要な材料</h2>
         <details>
             <summary>炭水化物（パン類・穀類・麺類）</summary>
                 <h2>パン類</h2>
@@ -671,7 +700,6 @@
                     <a>唐辛子</a>
                     <a>{{$menu_spices->chili}}</a><br>
         </details>
-    <a href="/food/blog/create/{{$menu->id}}">このメニューを作成しブログに投稿しよう！</a><br>
-    <a href="/food/menu/search/management/{{Auth::User()->id}}">戻る</a>
+    </div>
 </body>
 @endsection

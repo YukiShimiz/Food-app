@@ -7,38 +7,116 @@
     <title>Template Detail</title>
 </head>
 <body>
-    <h2>タイトル</h2>
-        <p>{{$template_title_body->title}}</p>
-    <h2>説明</h2>
-        <p>{{$template_title_body->body}}</p>
-    <h2>必要な材料</h2>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" style="color:white">食材管理アプリ</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/food/top">ホーム</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/management">食材管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/menu/search/top">レシピ検索</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/menu/post">レシピ投稿</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/blog/index/{{Auth::User()->id}}">ブログ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="ml-3 mt-3">
+    <a type="button" class="btn btn-link" href="/food/menu/search/template/{{Auth::User()->id}}">戻る</a>
+    <div class="card" style="width: 40rem;">
+      <div class="card-body">
+        <h4 class="card-title">タイトル：{{$template_title_body->title}}</h4>
+        <p class="card-text">{{$template_title_body->body}}</p>
+        <a>作成日時：{{$template_title_body->created_at}}</a><br>
+        <a>更新日時：{{$template_title_body->updated_at}}</a><br>
+      </div>
+    </div>
+    <h2 class="mt-3">材料</h2>
         <details>
             <summary>炭水化物（パン類・穀類・麺類）</summary>
                 <h2>パン類</h2>
-                    <a>食パン</a>
-                    <a>{{$template_carbohydrates_bread->plain_bread}}</a><br>
-                    <a>コッペパン</a>
-                    <a>{{$template_carbohydrates_bread->koppe_bread}}</a><br>
-                    <a>クロワッサン</a>
-                    <a>{{$template_carbohydrates_bread->croissant}}</a><br>
-                    <a>ロールパン</a>
-                    <a>{{$template_carbohydrates_bread->bread_roll}}</a><br>
-                    <a>ベーグル</a>
-                    <a>{{$template_carbohydrates_bread->bagel}}</a><br>
-                    <a>デニッシュ</a>
-                    <a>{{$template_carbohydrates_bread->danish}}</a><br>
-                    <a>スコーン</a>
-                    <a>{{$template_carbohydrates_bread->scone}}</a><br>
-                    <a>バゲット</a>
-                    <a>{{$template_carbohydrates_bread->baguette}}</a><br>
-                    <a>バタール</a>
-                    <a>{{$template_carbohydrates_bread->batal}}</a><br>
-                    <a>ナン</a>
-                    <a>{{$template_carbohydrates_bread->naan}}</a><br>
-                    <a>グリッシーニ</a>
-                    <a>{{$template_carbohydrates_bread->grissini}}</a><br>
-                    <a>マフィン</a>
-                    <a>{{$template_carbohydrates_bread->muffin}}</a><br>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">食パン</th>
+                                <td>{{$template_carbohydrates_bread->plain_bread}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">コッペパン</th>
+                                <td>{{$template_carbohydrates_bread->koppe_bread}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">クロワッサン</th>
+                                <td>{{$template_carbohydrates_bread->croissant}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ロールパン</th>
+                                <td>{{$template_carbohydrates_bread->bread_roll}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ベーグル</th>
+                                <td>{{$template_carbohydrates_bread->bagel}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">デニッシュ</th>
+                                <td>{{$template_carbohydrates_bread->danish}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">スコーン</th>
+                                <td>{{$template_carbohydrates_bread->scone}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">バゲット</th>
+                                <td>{{$template_carbohydrates_bread->baguette}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">バタール</th>
+                                <td>{{$template_carbohydrates_bread->batal}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ナン</th>
+                                <td>{{$template_carbohydrates_bread->naan}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">グリッシーニ</th>
+                                <td>{{$template_carbohydrates_bread->grissini}}</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th scope="row">マフィン</th>
+                                <td>{{$template_carbohydrates_bread->muffin}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 <h2>穀類</h2>
                     <a>米</a>
                     <a>{{$template_carbohydrates_cereals->rice}}</a><br>
@@ -671,6 +749,6 @@
                     <a>唐辛子</a>
                     <a>{{$template_spices->chili}}</a><br>
         </details>
-    <a href="/food/menu/search/template/{{Auth::User()->id}}">戻る</a>
+    </div>
 </body>
 @endsection

@@ -7,8 +7,32 @@
     <title>Menu Top</title>
 </head>
 <body>
-    <a href="/food/menu/search/management/{{Auth::User()->id}}">現在登録されている食材で検索</a><br>
-    <a href="/food/menu/search/template/{{Auth::User()->id}}">テンプレートを用いて検索</a><br>
-    <a href="/food/top">戻る</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <a class="navbar-brand" style="color:white">食材管理アプリ</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/food/top">ホーム</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/management">食材管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/menu/search/top">レシピ検索</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/menu/post">レシピ投稿</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/food/blog/index/{{Auth::User()->id}}">ブログ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="mt-3 ml-3">
+        <a type="button" class="btn btn-link" href="/food/menu/search/management/{{Auth::User()->id}}">マネジメントを用いて検索</a><br>
+        <a type="button" class="btn btn-link" href="/food/menu/search/template/{{Auth::User()->id}}">テンプレートを用いて検索</a><br>
+        <a type="button" class="btn btn-link" href="/food/top">戻る</a>
+    </div>
 </body>
 @endsection
